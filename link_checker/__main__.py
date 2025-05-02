@@ -20,10 +20,21 @@ def install():
 
 def main(url):
     install()
+    # result = subprocess.run(f"npx linkinator --recurse --verbosity error {url}", shell=True, capture_output=True, text=True)
     result = subprocess.run(f"npx linkinator {url}", shell=True, capture_output=True, text=True)
 
-    if errors := result.stderr:
-        logging.error(errors)
+    if all_responses := result.stderr:
+        warnings = {}
+        for error in all_responses.split('\n'):
+            if error.startswith('['):  # Some of the lines contain description with emojisht
+                code, link = error.split()
+                if not warnings.get(code):
+                    warnings[code] = []
+                warnings[code].append(link)
+        errors = warnings.pop('[404]')
+
+        logging.warning(f"Warnings: {warnings}")
+        logging.error(f"Errors: {errors}")
         raise Exception(errors)
 
 
