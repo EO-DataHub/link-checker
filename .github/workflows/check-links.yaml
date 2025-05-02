@@ -1,0 +1,26 @@
+on:
+  workflow_call:
+  push:
+    tags:
+      - 'v[0-9]+'
+      - 'v[0-9]+-*'
+      - 'v[0-9]+.[0-9]+'
+      - 'v[0-9]+.[0-9]+-*'
+      - 'v[0-9]+.[0-9]+.[0-9]+'
+      - 'v[0-9]+.[0-9]+.[0-9]+-*'
+    branches:
+      - '**'
+name: ci
+jobs:
+  linkinator:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: JustinBeckwith/linkinator-action@v1
+        with:
+          paths: |
+            'https://dev.eodatahub.org.uk'
+            'https://dev3.eodatahub.org.uk'
+            'https://test.eodatahub.org.uk'
+            'https://staging.eodatahub.org.uk'
+            'https://prod.eodatahub.org.uk'
