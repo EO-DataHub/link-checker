@@ -10,7 +10,7 @@ on:
       - 'v[0-9]+.[0-9]+.[0-9]+-*'
     branches:
       - '**'
-name: ci
+name: linkinator
 jobs:
   linkinator:
     runs-on: ubuntu-latest
