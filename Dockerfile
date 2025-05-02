@@ -23,6 +23,8 @@ FROM node:22-slim AS js_builder
 RUN export npm_config_cache=.
 RUN npm install -g npm@11.3.0
 RUN npm cache clean --force
+RUN mkdir "/.npm"
+RUN chown -R 50004:50004 "/.npm"
 # RUN "npx linkinator $1
 ENTRYPOINT ["npx", "linkinator", "--recurse", "--verbosity", "error"]
 
