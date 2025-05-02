@@ -13,6 +13,7 @@ def run_npm_command(command):
 def install():
     logging.info("Install npm")
     run_npm_command("npm install")
+    run_npm_command("npm install npx")
     run_npm_command("npm install whatwg-url")
     run_npm_command("npm install linkinator")
 
