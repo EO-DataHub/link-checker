@@ -4,7 +4,7 @@ import sys
 
 
 def main(url):
-    result = subprocess.run( # nosec
+    result = subprocess.run(  # nosec
         f"npx linkinator --recurse --verbosity error {url}",
         shell=True,
         capture_output=True,
