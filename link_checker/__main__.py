@@ -1,4 +1,3 @@
-
 import logging
 import subprocess
 import sys
@@ -10,11 +9,12 @@ def run_npm_command(command):
     if result.stderr:
         logging.error(result.stderr)
 
+
 def install():
     logging.info("Install npm")
-    run_npm_command('npm install')
-    run_npm_command('npm install whatwg-url')
-    run_npm_command('npm install linkinator')
+    run_npm_command("npm install")
+    run_npm_command("npm install whatwg-url")
+    run_npm_command("npm install linkinator")
 
 
 def main(url):
@@ -26,8 +26,6 @@ def main(url):
         raise Exception(errors)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     url = sys.argv[1]
     main(url)
-
-
