@@ -16,6 +16,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: JustinBeckwith/linkinator-action@v1
-        with:
-          config: 'linkinator.config.json'
+#      - uses: JustinBeckwith/linkinator-action@v1
+#        with:
+#          config: 'linkinator.config.json'
+
+
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+#        with:
+#          node-version: ${{ matrix.node-version }}
+
+      - run: |
+          npx linkinator --recurse --verbosity error https://dev3.eodatahub.org.uk
+
