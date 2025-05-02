@@ -17,10 +17,3 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: JustinBeckwith/linkinator-action@v1
-        with:
-          paths: |
-            'https://dev.eodatahub.org.uk'
-            'https://dev3.eodatahub.org.uk'
-            'https://test.eodatahub.org.uk'
-            'https://staging.eodatahub.org.uk'
-            'https://prod.eodatahub.org.uk'
