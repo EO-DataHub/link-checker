@@ -4,12 +4,12 @@ import sys
 
 
 def main(url):
-    result = subprocess.run(
+    result = subprocess.run( # nosec
         f"npx linkinator --recurse --verbosity error {url}",
         shell=True,
         capture_output=True,
         text=True,
-    )  # nosec
+    )
 
     if all_responses := result.stderr:
         warnings = {}
