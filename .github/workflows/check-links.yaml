@@ -21,12 +21,17 @@ jobs:
 #          config: 'linkinator.config.json'
 
 
-      - name: Use Node.js
-        uses: actions/setup-node@v4
+      - uses: actions/setup-node@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: 3.12
 #        with:
 #          node-version: ${{ matrix.node-version }}
 
       - run: |
           npm install linkinator
           npx linkinator --recurse --verbosity error https://dev3.eodatahub.org.uk
+
+      - run: |
+          python3 link_checker/__main__.py https://dev3.eodatahub.org.uk
 
