@@ -20,8 +20,8 @@ def install():
 
 def main(url):
     # install()
-    # result = subprocess.run(f"npx linkinator --recurse --verbosity error {url}", shell=True, capture_output=True, text=True)
-    result = subprocess.run(f"npx linkinator {url}", shell=True, capture_output=True, text=True)
+    result = subprocess.run(f"npx linkinator --recurse --verbosity error {url}", shell=True, capture_output=True, text=True)
+    # result = subprocess.run(f"npx linkinator {url}", shell=True, capture_output=True, text=True)
 
     if all_responses := result.stderr:
         warnings = {}
