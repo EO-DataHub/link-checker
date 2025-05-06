@@ -10,28 +10,29 @@ on:
       - 'v[0-9]+.[0-9]+.[0-9]+-*'
     branches:
       - '**'
+  repository_dispatch:
+    types: [link-check-env]
+  workflow_dispatch:
+  # schedule:
+  #   - cron: "0 */6 * * *"
+
 name: linkinator
 jobs:
   linkinator:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-#      - uses: JustinBeckwith/linkinator-action@v1
-#        with:
-#          config: 'linkinator.config.json'
+      - name: ${{ github.event.client_payload.custom_run_id || github.run_id }}
+        run: |
+          echo "Executed from ${{ github.event.client_payload.custom_run_id || github.run_id }}"
 
+      - uses: actions/checkout@v3
 
       - uses: actions/setup-node@v4
       - uses: actions/setup-python@v5
         with:
           python-version: 3.12
-#        with:
-#          node-version: ${{ matrix.node-version }}
 
-#      - run: |
-#          npm install linkinator
-#          npx linkinator --recurse --verbosity error https://dev3.eodatahub.org.uk
-
-      - run: |
-          python3 link_checker/__main__.py https://dev3.eodatahub.org.uk
-
+      - run: |          
+          environment=${{ github.event.client_payload.environment }}
+          dot=${{ github.event.client_payload.dot }}
+          python3 link_checker/__main__.py $environment $dot
