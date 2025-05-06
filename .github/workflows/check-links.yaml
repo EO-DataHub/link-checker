@@ -33,6 +33,5 @@ jobs:
           python-version: 3.12
 
       - run: |          
-          environment=${{ github.event.client_payload.environment }}
-          dot=${{ github.event.client_payload.dot }}
-          python3 link_checker/__main__.py $environment $dot
+          url=${{ github.event.client_payload.url }}
+          python3 link_checker/__main__.py $url

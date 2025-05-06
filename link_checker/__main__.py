@@ -3,9 +3,7 @@ import subprocess
 import sys
 
 
-def main(environment, include_dot=True):
-    dot = "." if include_dot else ""
-    url = f"https://{environment}{dot}eodatahub.org.uk"
+def main(url):
     result = subprocess.run(  # nosec
         f"npx linkinator --recurse --verbosity error {url}",
         shell=True,
