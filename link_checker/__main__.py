@@ -22,9 +22,10 @@ def main(url):
                 warnings[code].append(link)
         errors = warnings.pop("[404]", [])
 
-        logging.warning(f"Warnings: {warnings}")
-        logging.error(f"Errors: {errors}")
-        raise Exception(errors)
+        if errors:
+            logging.warning(f"Warnings: {warnings}")
+            logging.error(f"Errors: {errors}")
+            raise Exception(errors)
 
 
 if __name__ == "__main__":
