@@ -51,8 +51,11 @@ venv:
 	./venv/bin/pip3 install -r requirements.txt -r requirements-dev.txt
 	touch .make-venv-installed
 
+linkinator:
+    npx install linkinator
+
 .git/hooks/pre-commit:
 	./venv/bin/pre-commit install
 	curl -o .pre-commit-config.yaml https://raw.githubusercontent.com/EO-DataHub/github-actions/main/.pre-commit-config-python.yaml
 
-setup: venv requirements .make-venv-installed .git/hooks/pre-commit
+setup: venv requirements .make-venv-installed .git/hooks/pre-commit linkinator

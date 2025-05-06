@@ -1,17 +1,6 @@
-# UK EO Data Hub Platform: template repository
+# Link Checker
 
-This serves as a template repository for new UKEODHP Python-base software components.
-
-When using this template remember to:
-* Edit `pyproject.toml` and set everything marked `CHANGEME`
-* Update the dependencies as described below.
-* Create a Docker repo in AWS (https://eu-west-2.console.aws.amazon.com/ecr/create-repository?region=eu-west-2 for
-  the Telespazio UKEODHP repos) and update `Makefile` with the name of the Docker image to build.
-* Consider adding `dockerrun` and/or `run` targets to the `Makefile`.
-* Update `Dockerfile`
-* Add a description here of how to do local development.
-
-# Development of this component
+This uses (linkinator)[https://www.npmjs.com/package/linkinator] to identify any broken links for a given URL. 
 
 ## Getting started
 
@@ -32,29 +21,6 @@ After `make setup` you can run `pre-commit` to run pre-commit checks on staged c
 `pre-commit run --all-files` to run them on all files. This replicates the linter checks that
 run from GitHub actions.
 
-
-### Alternative installation
-
-You will need Python 3.11. On Debian you may need:
-* `sudo add-apt-repository -y 'deb http://ppa.launchpad.net/deadsnakes/ppa/ubuntu focal main'` (or `jammy` in place of `focal` for later Debian)
-* `sudo apt update`
-* `sudo apt install python3.11 python3.11-venv`
-
-and on Ubuntu you may need
-* `sudo add-apt-repository -y 'ppa:deadsnakes/ppa'`
-* `sudo apt update`
-* `sudo apt install python3.11 python3.11-venv`
-
-To prepare running it:
-
-* `virtualenv venv -p python3.11`
-* `. venv/bin/activate`
-* `rehash`
-* `python -m ensurepip -U`
-* `pip3 install -r requirements.txt`
-* `pip3 install -r requirements-dev.txt`
-
-You should also configure your IDE to use black so that code is automatically reformatted on save.
 
 ## Building and testing
 
