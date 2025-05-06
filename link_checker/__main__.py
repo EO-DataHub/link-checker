@@ -4,12 +4,16 @@ import sys
 
 
 def main(url):
+
+    print('here')
     result = subprocess.run(  # nosec
         f"npx linkinator --recurse --verbosity error {url}",
         shell=True,
         capture_output=True,
         text=True,
     )
+
+    logging.info(result)
 
     if all_responses := result.stderr:
         warnings = {}
@@ -29,5 +33,5 @@ def main(url):
 
 
 if __name__ == "__main__":
-    args = sys.argv[1:]
-    main(args)
+    url = sys.argv[1]
+    main(url)
