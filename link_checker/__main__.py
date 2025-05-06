@@ -14,7 +14,7 @@ def main(url):
     if all_responses := result.stderr:
         warnings = {}
         for error in all_responses.split("\n"):
-            if error.startswith("["):  # Some of the lines contain description with emojisht
+            if error.startswith("["):  # Some of the lines contain description with emojis
                 code, link = error.split()
                 if not warnings.get(code):
                     warnings[code] = []
