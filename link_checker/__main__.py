@@ -16,10 +16,11 @@ def main(url):
         for error in all_responses.split("\n"):
             if error.startswith("["):  # Some of the lines contain description with emojis
                 code, link = error.split()
+                logging.info(f"Found: {code} {link}")
                 if not warnings.get(code):
                     warnings[code] = []
                 warnings[code].append(link)
-        errors = warnings.pop("[404]")
+        errors = warnings.pop("[404]", [])
 
         logging.warning(f"Warnings: {warnings}")
         logging.error(f"Errors: {errors}")
