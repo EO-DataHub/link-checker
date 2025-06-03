@@ -13,9 +13,9 @@
 # limitations under the License.
 
 [project]
-name = "CHANGEME-component-name"
+name = "link-checker"
 version = "0.1.0"
-description = "CHANGEME a short description"
+description = "Checks web presence for broken links"
 readme = "README.md"
 
 # Our target version is Python 3.11, but it may work with earlier versions.
@@ -27,11 +27,11 @@ license = {file = "LICENSE"}
 # authored the project, and a valid email address corresponding to the name
 # listed.
 authors = [
-  {name = "Telespazio UK Ltd", email = "CHANGEME-alex.hayward@telespazio.com" }
+  {name = "Telespazio UK Ltd", email = "hannah.collingwood@telespazio.com" }
 ]
 
 maintainers = [
-  {name = "Telespazio UK Ltd", email = "CHANGEME-alex.hayward@telespazio.com" }
+  {name = "Telespazio UK Ltd", email = "hannah.collingwood@telespazio.com" }
 ]
 
 # Classifiers help users find your project by categorizing it.
@@ -86,9 +86,9 @@ dev = ["pip-tools", "pytest", "pytest-xdist", "pytest-mock", "pytest-watcher", "
 # maintainers, and where to support the project financially. The key is
 # what's used to render the link text on PyPI.
 [project.urls]  # Optional
-homepage = "https://github.com/UKEODHP/"
-repository = "CHANGEME-https://github.com/UKEODHP/..."
-changelog = "CHANGEME-https://github.com/UKEODHP/.../master/CHANGELOG.md"
+homepage = "https://github.com/EO-DataHub/"
+repository = "https://github.com/EO-DataHub/link-checker"
+changelog = "https://github.com/EO-DataHub/link-checker/master/CHANGELOG.md"
 
 [build-system]
 # These are the assumed default build requirements from pip:
@@ -103,7 +103,7 @@ markers = [
 ]
 
 [tool.setuptools]
-packages = ["CHANGEME-pythonpkgname"]
+packages = ["link_checker"]
 
 [tool.black]
 line-length = 100
