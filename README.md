@@ -1,8 +1,17 @@
 # Link Checker
 
 This uses (linkinator)[https://www.npmjs.com/package/linkinator] to identify any broken links for a given URL. 
+404 links will raise errors while other 4XX links will raise warnings.
+
+It is designed to operate as a standalone GitHub action to flag any invalid links for a particular website but can also be run locally.
+
 
 ## Getting started
+
+### Prerequisites
+
+Ensure you have a Python 3.12 environment available and that npx is installed.
+
 
 ### Install via makefile
 
@@ -79,3 +88,18 @@ manually in the following way:
 * Run `make dockerbuild` (for images tagged `latest`) or `make dockerbuild VERSION=1.2.3` for a release tagged `1.2.3`.
   The image will be available locally within Docker after this step.
 * Run `make dockerpush` or `make dockerpush VERSION=1.2.3`. This will send the image to the ECR repository.
+
+## Usage
+
+The service is typically run through GitHub actions, but you can invoke it directly for testing or development.
+
+Run from the command line:
+
+```sh
+./venv/bin/python -m __main__.py https://example-url.com
+```
+
+
+## License
+
+This project is licensed under the United Kingdom Research and Innovation BSD Licence. See [LICENSE](LICENSE) for details.
