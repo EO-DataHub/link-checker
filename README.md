@@ -1,6 +1,6 @@
 # Link Checker
 
-This uses (linkinator)[https://www.npmjs.com/package/linkinator] to identify any broken links for a given URL. 
+This uses [linkinator](https://www.npmjs.com/package/linkinator) to identify any broken links for a given URL. 
 404 links will raise errors while other 4XX links will raise warnings.
 
 It is designed to operate as a standalone GitHub action to flag any invalid links for a particular website but can also be run locally.
